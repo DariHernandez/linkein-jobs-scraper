@@ -84,8 +84,8 @@ Countries, states or cities where do you want to extract data
 
 # Ouput data
 Sample:
-|keyword|location|title|company|date|
-|---|---|---|---|---|
-frontend|Michoacan|Frontend Engineer|Ankr|1 week ago
-frontend|Michoacan|Front End Developer|Colgate-Palmolive|6 days ago
-frontend|Michoacan|Software Engineer II-Front End|Microsoft|2 weeks ago
+|keyword|location|title|company|date|link|
+|---|---|---|---|---|---|
+frontend|Michoacan|Frontend Engineer|Ankr|1 week ago|https://mx.linkedin.com/jobs/view/...|
+frontend|Michoacan|Front End Developer|Colgate-Palmolive|6 days ago|https://mx.linkedin.com/jobs/view/...|
+frontend|Michoacan|Software Engineer II-Front End|Microsoft|2 weeks ago|https://mx.linkedin.com/jobs/view/...|

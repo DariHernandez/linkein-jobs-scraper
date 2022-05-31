@@ -21,7 +21,7 @@ def main ():
     csv_writter = csv.writer(csv_file)
 
     # Write colum titles 
-    headers = ["keyword", "location", "title", "company", "date"]
+    headers = ["keyword", "location", "title", "company", "date", "link"]
     csv_writter.writerow (headers)
 
     # Open chrome
@@ -71,6 +71,7 @@ def main ():
                 selector_title = f"{selector_current_article} h3"
                 selector_company = f"{selector_current_article} h4"
                 selector_date = f"{selector_current_article} time"
+                selector_link = f"{selector_current_article} > a"
 
                 # Skeip duplicated jobs
                 id = scraper.get_attrib (selector_current_article, "data-tracking-id")
@@ -83,6 +84,7 @@ def main ():
                 title = scraper.get_text (selector_title)
                 company = scraper.get_text (selector_company)
                 date = scraper.get_text (selector_date)
+                link = scraper.get_attrib (selector_link, "href")
                 
                 # Clean data
                 title = title.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
@@ -90,7 +92,7 @@ def main ():
                 date = date.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
 
                 # Add data to csv
-                row_data = [keyword, location, title, company, date]
+                row_data = [keyword, location, title, company, date, link]
                 csv_writter.writerow (row_data)
 
             # Debug lines
