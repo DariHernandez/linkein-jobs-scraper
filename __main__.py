@@ -45,10 +45,10 @@ def main ():
             # Load page
             scraper.set_page (url)
 
-            # Debug lines
-            # with open (os.path.join (os.path.dirname (__file__), "temp.html"), "w", encoding="UTF-8") as file:
-            #     file.write (res.text)
-            # break
+            # Load again if the page redirect
+            if location_formated not in scraper.driver.current_url:
+                time.sleep (3)
+                scraper.set_page (url)
             
             # Generate css selectors for get data
             selector_article = "ul.jobs-search__results-list li"
