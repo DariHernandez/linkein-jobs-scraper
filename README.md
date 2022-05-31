@@ -82,7 +82,7 @@ List of word to search in the page
 * ### locations
 Countries, states or cities where do you want to extract data
 
-# Ouput data
+# Output data
 Sample:
 |keyword|location|title|company|date|link|
 |---|---|---|---|---|---|
