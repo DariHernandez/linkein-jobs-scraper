@@ -20,6 +20,10 @@ def main ():
     csv_file = open(csv_path, "a", encoding="utf-8", newline="")
     csv_writter = csv.writer(csv_file)
 
+    # Write colum titles 
+    headers = ["keyword", "location", "title", "company", "date"]
+    csv_writter.writerow (headers)
+
     # Open chrome
     scraper = Web_scraping()
 
@@ -52,47 +56,43 @@ def main ():
                 # break
                 
                 # Generate css selectors for get data
-                selector_article = "#p_ofertas article"
-                selector_title = f"{selector_article} h1"
-                selector_company = f"{selector_article} .fs16.fc_base.mt5.mb10"
-                selector_details = f"{selector_article} .fc_aux.t_word_wrap.mb10.hide_m"
-                selector_date = f"{selector_article} .fs13.fc_aux"
+                selector_article = "ul.jobs-search__results-list li"
 
                 # Get number of articles in the current page
-                soup = bs4.BeautifulSoup (res.text, "html.parser")
-                articles = soup.select (selector_article)
+                articles = scraper.get_elems (selector_article)
                 
                 # Get data from each article
-                for article in articles:
+                for article_num in range(1, len(articles)+1):
+
+                    selector_current_article = f"{selector_article}:nth-child({article_num}) div"
+                    selector_title = f"{selector_current_article} .base-search-card__info h3"
+                    selector_company = f"{selector_current_article} .base-search-card__info h4"
+                    selector_date = f"{selector_current_article} time"
 
                     # Skeip duplicated jobs
-                    id = article.get ("id")
+                    id = scraper.get_attrib (selector_current_article, "data-tracking-id")
                     if id in jobs_ids:
                         continue
                     else:
                         jobs_ids.append (id)
 
                     # Get job data
-                    title = article.select (selector_title)[0].getText()
-                    company = article.select (selector_company)[0].getText()
-                    details = article.select (selector_details)[0].getText()
-                    date = article.select (selector_date)[0].getText().strip()
+                    title = scraper.get_text (selector_title)
+                    company = scraper.get_text (selector_company)
+                    date = scraper.get_text (selector_date)
                     
                     # Clean data
                     title = title.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
                     company = company.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
-                    details = details.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
                     date = date.strip().replace("\n", "").replace (",", "").replace ("\r\r", " ").replace ("\r", "")
 
                     # Add data to csv
-                    row_data = [keyword, location, title, company, details, date]
+                    row_data = [keyword, location, title, company, date]
                     csv_writter.writerow (row_data)
+                    print (row_data)
 
-                next_button = soup.select (selector_next_page)
-                if next_button:
-                    current_page+=1
-                else:
-                    break
+                # Go down for load more results
+                break
 
             # Debug lines
             break
