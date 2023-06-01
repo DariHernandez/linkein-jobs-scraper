@@ -41,86 +41,86 @@ Project type: **personal's project**
 
 # Details
 
-The oputput data is saved in the \\\"data.csv\\\" file.\r
-You can setup the project with the config.json file.\r
-\r
-## Output data\r
-Sample:\r
-|keyword|location|title|company|date|link|\r
-|---|---|---|---|---|---|\r
-frontend|Michoacan|Frontend Engineer|Ankr|1 week ago|https://mx.linkedin.com/jobs/view/...|\r
-frontend|Michoacan|Front End Developer|Colgate-Palmolive|6 days ago|https://mx.linkedin.com/jobs/view/...|\r
+The oputput data is saved in the "data.csv" file.
+You can setup the project with the config.json file.
+
+## Output data
+Sample:
+|keyword|location|title|company|date|link|
+|---|---|---|---|---|---|
+frontend|Michoacan|Frontend Engineer|Ankr|1 week ago|https://mx.linkedin.com/jobs/view/...|
+frontend|Michoacan|Front End Developer|Colgate-Palmolive|6 days ago|https://mx.linkedin.com/jobs/view/...|
 frontend|Michoacan|Software Engineer II-Front End|Microsoft|2 weeks ago|https://mx.linkedin.com/jobs/view/...|
 
 # Install
 
-## Third party modules\r
-\r
-Open Terminal in project folder and install all modules from pip:\r
-(here a tutorial about [how to open terminal in project folder for windows](https://github.com/DariHernandez/tutorials/tree/master/open%20terminal%20(cmd)%20in%20project%20folder%20in%20windows)) \r
-\r
-\\`\\`\\` bash\r
-$ pip install -r requirements.txt\r
-\\`\\`\\`\r
-## Programs\r
-\r
-To run the project, the following programs must be installed:\r
-\r
+## Third party modules
+
+Open Terminal in project folder and install all modules from pip:
+(here a tutorial about [how to open terminal in project folder for windows](https://github.com/DariHernandez/tutorials/tree/master/open%20terminal%20(cmd)%20in%20project%20folder%20in%20windows)) 
+
+``` bash
+$ pip install -r requirements.txt
+```
+## Programs
+
+To run the project, the following programs must be installed:
+
 * [Google Chrome](https://www.google.com/intl/es/chrome) last version
 
 # Settings
 
-In the config.json file, there are the locations and keywords for search in the page\r
-\r
-## Structure\r
-\r
-\\`\\`\\`json\r
-{\r
-    \\\"show_chrome\\\": true,\r
-    \\\"keywords\\\":  [\r
-        \\\"web developer\\\", \r
-        \\\"frontend\\\", \r
-    ],\r
-    \\\"locations\\\": [\r
-        \\\"Aguascalientes\\\",\r
-        \\\"Baja California\\\",\r
-        \\\"Baja California Sur\\\",\r
-        \\\"Campeche\\\",\r
-        \\\"Chiapas\\\",\r
-        \\\"Chihuahua\\\",\r
-        \\\"Ciudad de Mexico\\\",\r
-    ]\r
-}\r
-\\`\\`\\`\r
-\r
-### show_chrome\r
-Show (true) or hide (false) the google chrome window\r
-### keywords\r
-List of word to search in the page\r
-### locations\r
+In the config.json file, there are the locations and keywords for search in the page
+
+## Structure
+
+```json
+{
+    "show_chrome": true,
+    "keywords":  [
+        "web developer", 
+        "frontend", 
+    ],
+    "locations": [
+        "Aguascalientes",
+        "Baja California",
+        "Baja California Sur",
+        "Campeche",
+        "Chiapas",
+        "Chihuahua",
+        "Ciudad de Mexico",
+    ]
+}
+```
+
+### show_chrome
+Show (true) or hide (false) the google chrome window
+### keywords
+List of word to search in the page
+### locations
 Countries, states or cities where do you want to extract data
 
 # Run
 
-Run the **__main __.py** or the **project folder** with your python 3.10 interpreter.\r
-\r
-You can do it from terminal or by **double clicking the file**\r
-\r
-\r
-## Run sample from terminal:\r
-\r
-Before, [open terminal in project folder for windows](https://github.com/DariHernandez/tutorials/tree/master/open%20terminal%20(cmd)%20in%20project%20folder%20in%20windows)\r
-\r
-After, type: \r
-\r
-\\`\\`\\` bash\r
-$ py __main__.py\r
-\\`\\`\\`\r
-\r
-or\r
-\r
-\\`\\`\\` bash\r
-$ py .\r
-\\`\\`\\`
+Run the **__main __.py** or the **project folder** with your python 3.10 interpreter.
+
+You can do it from terminal or by **double clicking the file**
+
+
+## Run sample from terminal:
+
+Before, [open terminal in project folder for windows](https://github.com/DariHernandez/tutorials/tree/master/open%20terminal%20(cmd)%20in%20project%20folder%20in%20windows)
+
+After, type: 
+
+``` bash
+$ py __main__.py
+```
+
+or
+
+``` bash
+$ py .
+```
 
 
